@@ -413,8 +413,9 @@ def detect_face(img, minsize, pnet, rnet, onet, threshold, factor):
             pick = nms(total_boxes.copy(), 0.7, 'Min')
             total_boxes = total_boxes[pick,:]
             points = points[:,pick]
+            score  = score[pick] 
                 
-    return total_boxes, points
+    return total_boxes, points, score
 
 
 def bulk_detect_face(images, detection_window_size_ratio, pnet, rnet, onet, threshold, factor):
